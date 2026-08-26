@@ -1,4 +1,4 @@
-df <- read.csv('C:/Users/Nishka Pandya/Downloads/Data_101/vgsales.csv')
+df <- read.csv('data/vgsales.csv')
 
 
 
@@ -46,7 +46,7 @@ barplot(jp_genre_sales, main= "Top Selling Genres in Japan", xlab = "Genre", yla
 
 #Assumption: action would be popular since Japan is a popular video game market and in North America and globally action has the most sales, so in Japan
 #it is probably similar
-#Reality: RPG are more popular based on sales 
+#Reality: RPGs are more popular based on sales 
 
 
 
@@ -92,8 +92,8 @@ barplot(global_genre_sales, main= "Top Selling Genres Globally", xlab = "Genre",
 
 #2: IDENTIFY POPULAR PUBLISHERS BY AMOUNT OF SALES IN NA, EU, JP, OTHER, AND GLOBAL
 
-#while I tried to identify top 13 publishers in NA, EU, and JP, I noticed that they were mostly Nintendo and thought that Nintendo's ACTION games would
-#be top selling, however, that was not the case
+#while I tried to identify the top 13 publishers in NA, EU, and JP, I noticed that they were mostly Nintendo and thought that Nintendo's ACTION games would
+#be top selling; however, that was not the case
 
 
 
@@ -104,7 +104,7 @@ top13_df_NA <- subset(df, NA_Sales > 10)
 #display the subset 
 top13_df_NA
 
-#use tapply to find the total sum of every publishers sales in North America FROM the top13_df_NA subset
+#use tapply to find the total sum of every publisher's sales in North America FROM the top13_df_NA subset
 
 NA_by_publishers <- tapply(top13_df_NA$NA_Sales, top13_df_NA$Publisher, sum)
 NA_by_publishers #display
@@ -116,15 +116,15 @@ barplot(NA_by_publishers, main = "Publishers of Top 13 Games in NA by Global Sal
 #none of them were action games. I had assumed that Nintendo's action games would dominate in the top 13
 #since action games are popular...so this was unexpected to me.
 
-#display only nintendo sales in top 13 using subset
+#display only Nintendo sales in top 13 using subset
 top13_df_NA_Nintendo <- subset(top13_df_NA, Publisher == "Nintendo")
 top13_df_NA_Nintendo
 
-#lets visualize what i noticed in the tapply into the barplot
+#lets visualize what I noticed in the tapply into the barplot
 top13_df_NA_Nintendo_Genre <- tapply(top13_df_NA_Nintendo$NA_Sales, top13_df_NA_Nintendo$Genre, sum)
 barplot(top13_df_NA_Nintendo_Genre, main = "Nintendo Sales by Genre (subset from Top 13 games in NA)", xlab= "Genre", ylab ="Sales (Millions)", col = "darkred")
 
-#so Nintendo's best came from platform and sports. Even here I saw puzzle games which is unexpected because the
+#so Nintendo's best came from platform and sports. Even here I saw puzzle games, which is unexpected because the
 #less popular genre made the top 13 while action never did.
 
 
@@ -138,27 +138,27 @@ top13_df_EU <- subset(df, EU_Sales > 7)
 #display the subset 
 top13_df_EU
 
-#use tapply to find the total sum of every publishers sales in Europe FROM the top13_df_EU subset
+#use tapply to find the total sum of every publisher's sales in Europe FROM the top13_df_EU subset
 EU_by_publishers <- tapply(top13_df_EU$EU_Sales, top13_df_EU$Publisher, sum)
 
-#create a  barplot of the publishers of top 13 games in EU by global sales by the tapply EU_by_publishers 
+#create a  barplot of the publishers of top 13 games in EU by global sales using tapply EU_by_publishers 
 barplot(EU_by_publishers, main = "EU Sales by Publishers", xlab= "Publisher", ylab ="Count", col = "darkblue")
 
-#like North America, Nintendo heavily dominated top 13 games sold in EU
+# Like North America, Nintendo heavily dominated the top 13 games sold in the EU
 
 
-#display only nintendo sales in top 13 using subset
+#display only Nintendo sales in top 13 using subset
 top13_df_EU_Nintendo <- subset(top13_df_EU, Publisher == "Nintendo")
 top13_df_EU_Nintendo
 
 
-#lets visualize what i noticed in the tapply into the barplot
+#lets visualize what I noticed in the tapply into the barplot
 top13_df_EU_Nintendo_Genre <- tapply(top13_df_EU_Nintendo$EU_Sales, top13_df_EU_Nintendo$Genre, sum)
 barplot(top13_df_EU_Nintendo_Genre, main = "Nintendo Sales by Genre from Top 13 games in EU", xlab= "Genre", ylab ="Sales (Millions)", col = "darkblue")
 
-#Sports games by Nintendo in Europe made to the top 13 while action never did. This is the same like NOrth America, which is 
-#unexpected. I would have thought that because action is the top selling genre in Europe and Nintendo is a top publisher compared
-#to the other publishers in this dataset, Nintendo's action games would make the top 13. However instead its sports and other games 
+#Sports games by Nintendo in Europe made it to the top 13, while action never did. This is the same as North America, which is 
+#unexpected. I would have thought that because action is the top-selling genre in Europe and Nintendo is a top publisher compared
+#to the other publishers in this dataset, Nintendo's action games would make the top 13. However, instead, its sports and other games 
 #such as racing, simulation, and puzzle make it instead. 
 
 
@@ -173,7 +173,7 @@ top13_df_JP <- subset(df, JP_Sales > 4.34)
 #display the subset 
 top13_df_JP
 
-#use tapply to find the total sum of every publishers sales in Japan FROM the top13_df_JP subset
+#use tapply to find the total sum of every publisher's sales in Japan FROM the top13_df_JP subset
 JP_by_publishers <- tapply(top13_df_JP$JP_Sales, top13_df_JP$Publisher, sum)
 
 #create a  barplot of the publishers of top 13 games in Japan by global sales by the tapply JP_by_publishers 
@@ -182,7 +182,7 @@ top13_df_JP_Nintendo <- subset(top13_df_JP, Publisher == "Nintendo")
 #display
 top13_df_JP_Nintendo
 
-#lets visualize what i noticed in the tapply into the barplot
+#lets visualize what I noticed in the tapply into the barplot
 top13_df_JP_Nintendo_Genre <- tapply(top13_df_JP_Nintendo$JP_Sales, filtered_df_JP_Nintendo$Genre, sum)
 barplot(top13_df_JP_Nintendo_Genre, main = "Nintendo Sales in Japan by Genre (From Top 13 Top Selling Games)", xlab= "Genre", ylab ="Sales (Millions)", col = "pink")
 
@@ -241,7 +241,7 @@ df_Nintendo_NA_Sales_Action
 df_NA <- subset(df, Genre == "Action")
 df_NA
 
-#show Nintendo most popular platforms they launched games on
+#show Nintendo's most popular platforms they launched games on
 #does genre matter when choosing a platform? 
 
 
@@ -252,10 +252,10 @@ yearly_sales
 yearly_sales <- subset(yearly_sales, sales_by_year > 0)
 yearly_sales
 
-#barplot for total global salees by year 
+#barplot for total global sales by year 
 barplot(sales_by_year, main="Global Sales by Year",xlab= "Year", ylab="Sales", col="darkred" )
 
-#I noticed that in particular, 2008 was high in global sales
+#I noticed that, in particular, 2008 was high in global sales
 
 #remove NA values 
 years_games_clean <- subset(df, !is.na(Year)) #looked up how to use !is.na in ChatGPT as I noticed some years were NA and did not want to include that
@@ -269,7 +269,7 @@ barplot(years_games, main="Total Games Created by Year",xlab= "Year", ylab="Sale
 #2008 and 2009 saw the most games developed
 
 
-#decided not to focus on year column because it was only from 1980-2016. However it can be used as historical data that can give insight into 
+# Decided not to focus on year column because it was only from 1980-2016. However, it can be used as historical data that can give insight into 
 #trends related to publishers and genres (my other interesting findings).
 
 #5: PLATFORMS VS. GENRE? (MOSAIC PLOT)
@@ -286,6 +286,6 @@ popular_action <- subset(df, Genre== "Action")
 popular_action
 
 #I noticed over here that Nintendo's action game sales in North America, Global, and Europe are not as high as I thought. highest is 4.10 sales in North America so maybe there are more action games produced
-#but that have very little sales whereas in the top 13 for all these countries the sports and platform games that made the top 13 were the ones that made up much of 
+#but that have very little sales, whereas in the top 13 for all these countries, the sports and platform games that made the top 13 were the ones that made up much of 
 #the sales for sports games in general (basically outliers)
 
