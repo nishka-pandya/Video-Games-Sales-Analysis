@@ -29,11 +29,11 @@ Analyzed a video games dataset containing 16,598 entries. Began with an explorat
 
 # Files 
 
-**Video_Games_Sales_Analysis.R** -> Contains code for exploratory data analysis 
-**Video_Games_Permutations.R** -> Contains code for hypothesis testing, permutation tests, and confidence intervals based on formulated research questions. 
-**Video Game Sales Data Analysis** -> Report about exploratory data analysis. Identified 3 interesting patterns noticed involving differences in regional sales depending on the video game genre.
-**Video Game Sales Hypothesis Testing Report** -> Report about the two research questions, as well as previously tested questions that were statistically insignificant after permutation tests. 
-**vgsales.csv** -> The CSV file containing 16,598 entries of video game sales information.
+**1) Video_Games_Sales_Analysis.R** -> Contains code for exploratory data analysis 
+**2) Video_Games_Permutations.R** -> Contains code for hypothesis testing, permutation tests, and confidence intervals based on formulated research questions. 
+**3) Video Game Sales Data Analysis** -> Report about exploratory data analysis. Identified 3 interesting patterns noticed involving differences in regional sales depending on the video game genre.
+**4) Video Game Sales Hypothesis Testing Report** -> Report about the two research questions, as well as previously tested questions that were statistically insignificant after permutation tests. 
+**5) vgsales.csv** -> The CSV file containing 16,598 entries of video game sales information.
 
 # Data
 
